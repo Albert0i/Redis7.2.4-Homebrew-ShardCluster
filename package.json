@@ -1,0 +1,17 @@
+{
+  "name": "redis7.2.4-homebrew",
+  "version": "1.0.0",
+  "description": "Rename `dotenv` to `.env` and set parameters accordingly.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "nodemon src/test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ioredis": "^5.4.1"
+  }
+}

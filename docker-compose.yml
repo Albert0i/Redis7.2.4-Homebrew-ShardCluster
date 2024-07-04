@@ -1,0 +1,207 @@
+version: "3"
+
+networks:
+  re_cluster:
+    driver: nat
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.168.1.0/24"
+
+services:
+  #Node 1
+  re1:
+    build: 
+      context: .
+    image: 
+      ${IMAGE_NAME}:${IMAGE_VERSION}
+    container_name: 
+      re1
+    ports:
+      - 6379:6379
+    command: 
+      ["redis-server", "c:\\conf\\redis.conf"]
+    volumes:
+      - ${CONFIG_DIR}\conf\6379:C:\conf:ro
+      - ${CONFIG_DIR}\data\6379:C:\data:rw
+    networks:
+      re_cluster:
+        ipv4_address: 192.168.1.11
+
+  #Node 2
+  re2:
+    build: 
+      context: .
+    image: 
+      ${IMAGE_NAME}:${IMAGE_VERSION}
+    container_name: 
+      re2
+    ports:
+      - 6380:6380
+    command: 
+      ["redis-server", "c:\\conf\\redis.conf"]
+    volumes:
+      - ${CONFIG_DIR}\conf\6380:C:\conf:ro
+      - ${CONFIG_DIR}\data\6380:C:\data:rw
+    networks:
+      re_cluster:
+        ipv4_address: 192.168.1.12
+
+  #Node 3
+  re3:
+    build: 
+      context: .
+    image: 
+      ${IMAGE_NAME}:${IMAGE_VERSION}
+    container_name: 
+      re3
+    ports:
+      - 6381:6381
+    command: 
+      ["redis-server", "c:\\conf\\redis.conf"]
+    volumes:
+      - ${CONFIG_DIR}\conf\6381:C:\conf:ro
+      - ${CONFIG_DIR}\data\6381:C:\data:rw
+    networks:
+      re_cluster:
+        ipv4_address: 192.168.1.13
+
+  #Node 4
+  re4:
+    build: 
+      context: .
+    image: 
+      ${IMAGE_NAME}:${IMAGE_VERSION}
+    container_name: 
+      re4
+    ports:
+      - 6382:6382
+    command: 
+      ["redis-server", "c:\\conf\\redis.conf"]
+    volumes:
+      - ${CONFIG_DIR}\conf\6382:C:\conf:ro
+      - ${CONFIG_DIR}\data\6382:C:\data:rw
+    networks:
+      re_cluster:
+        ipv4_address: 192.168.1.14
+
+  #Node 5
+  re5:
+    build: 
+      context: .
+    image: 
+      ${IMAGE_NAME}:${IMAGE_VERSION}
+    container_name: 
+      re5
+    ports:
+      - 6383:6383
+    command: 
+      ["redis-server", "c:\\conf\\redis.conf"]
+    volumes:
+      - ${CONFIG_DIR}\conf\6383:C:\conf:ro
+      - ${CONFIG_DIR}\data\6383:C:\data:rw
+    networks:
+      re_cluster:
+        ipv4_address: 192.168.1.15
+
+  #Node 6
+  re6:
+    build: 
+      context: .
+    image: 
+      ${IMAGE_NAME}:${IMAGE_VERSION}
+    container_name: 
+      re6
+    ports:
+      - 6384:6384
+    command: 
+      ["redis-server", "c:\\conf\\redis.conf"]
+    volumes:
+      - ${CONFIG_DIR}\conf\6384:C:\conf:ro
+      - ${CONFIG_DIR}\data\6384:C:\data:rw
+    networks:
+      re_cluster:
+        ipv4_address: 192.168.1.16
+
+#Node 7
+  re7:
+    build: 
+      context: .
+    image: 
+      ${IMAGE_NAME}:${IMAGE_VERSION}
+    container_name: 
+      re7
+    ports:
+      - 6385:6385
+    command: 
+      ["redis-server", "c:\\conf\\redis.conf"]
+    volumes:
+      - ${CONFIG_DIR}\conf\6385:C:\conf:ro
+      - ${CONFIG_DIR}\data\6385:C:\data:rw
+    networks:
+      re_cluster:
+        ipv4_address: 192.168.1.17
+
+#Node 8
+  re8:
+    build: 
+      context: .
+    image: 
+      ${IMAGE_NAME}:${IMAGE_VERSION}
+    container_name: 
+      re8
+    ports:
+      - 6386:6386
+    command: 
+      ["redis-server", "c:\\conf\\redis.conf"]
+    volumes:
+      - ${CONFIG_DIR}\conf\6386:C:\conf:ro
+      - ${CONFIG_DIR}\data\6386:C:\data:rw
+    networks:
+      re_cluster:
+        ipv4_address: 192.168.1.18
+
+#Node 9
+  re9:
+    build: 
+      context: .
+    image: 
+      ${IMAGE_NAME}:${IMAGE_VERSION}
+    container_name: 
+      re9
+    ports:
+      - 6387:6387
+    command: 
+      ["redis-server", "c:\\conf\\redis.conf"]
+    volumes:
+      - ${CONFIG_DIR}\conf\6387:C:\conf:ro
+      - ${CONFIG_DIR}\data\6387:C:\data:rw
+    networks:
+      re_cluster:
+        ipv4_address: 192.168.1.19
+
+#
+# Windows container and static ip
+# https://forums.docker.com/t/windows-container-and-static-ip/70204
+# 
+# docker network create -d transparent --subnet=192.168.1.0/24 --gateway=192.168.1.254 tnet
+# docker run -it --name fixedhost --network tnet --ip 192.168.1.111 mcr.microsoft.com/windows/nanoserver:20H2
+#
+# Windows container networking
+# https://learn.microsoft.com/en-us/virtualization/windowscontainers/container-networking/architecture
+# 
+# EOF (2024/05/31)
+# 
+
+#
+# To create cluster (only need for the first time): 
+# docker-compose exec creator cmd 
+# redis-cli --user admin --pass 123456 --cluster create re1:6379 re2:6380 re3:6381 re4:6382 re5:6383 re6:6384 re7:6385 re8:6386 re9:6387 --cluster-replicas 2
+# 
+# redis-cli -c --user alberto --pass 123456 
+# redis-cli -c --pipe --user alberto --pass 123456 < commands.redis
+#
+
+# 
+# EOF (2024/07/04)
+# 
