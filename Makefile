@@ -29,6 +29,7 @@ help:
 	@echo "	nodes		cluster nodes"
 	@echo "	slots		cluster slots"
 	@echo "	shards		cluster shards"
+	@echo "	erase		erase cluster (danger)"
 	@echo "	config		edit configuration"
 
 #
@@ -98,6 +99,13 @@ shards:
 	redis-cli --user ${AUTH_USER} --pass ${AUTH_PASS} --no-auth-warning cluster shards
 
 #
+# erase cluster
+#
+erase:
+	cmd /C rm -rf data
+	cmd /C md data\6379 data\6380 data\6381 data\6382 data\6383 data\6384 data\6385 data\6386 data\6387 	
+
+#
 # edit configuration
 #
 config:
@@ -106,13 +114,13 @@ config:
 #
 # To create cluster with: 
 # docker-compose exec creator cmd 
-# redis-cli --user admin --pass 123456 --cluster create re1:6379 re2:6380 re3:6381 re4:6382 re5:6383 re6:6384 --cluster-replicas 1
+# redis-cli --user admin --pass 123456 --cluster create re1:6379 re2:6380 re3:6381 re4:6382 re5:6383 re6:6384 re5:6383 re6:6384 re7:6385 re8:6386 re9:6387 --cluster-replicas 2
 # 
 # redis-cli -c --user alberto --pass 123456 
 # redis-cli -c --pipe --user alberto --pass 123456 < commands.redis
 # 
 
 #
-# EOF (2024/07/04)
+# EOF (2024/07/08)
 #
 
