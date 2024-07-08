@@ -11,7 +11,8 @@ import { Redis } from "ioredis"
         scaleReads: "slave",
         redisOptions: {
           username: process.env.AUTH_USER,
-          password: process.env.AUTH_PASS
+          password: process.env.AUTH_PASS,
+          showFriendlyErrorStack: true
         }
       });
 

@@ -114,11 +114,21 @@ config:
 #
 # To create cluster with: 
 # docker-compose exec creator cmd 
-# redis-cli --user admin --pass 123456 --cluster create re1:6379 re2:6380 re3:6381 re4:6382 re5:6383 re6:6384 re5:6383 re6:6384 re7:6385 re8:6386 re9:6387 --cluster-replicas 2
+# redis-cli --user default --pass 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82 --cluster create re1:6379 re2:6380 re3:6381 re4:6382 re5:6383 re6:6384 re7:6385 re8:6386 re9:6387 --cluster-replicas 2
 # 
-# redis-cli -c --user alberto --pass 123456 
-# redis-cli -c --pipe --user alberto --pass 123456 < commands.redis
+# redis-cli -c --user default --pass 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82
+# redis-cli -c --pipe --user default --pass 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82 < commands.redis
 # 
+
+#
+# redis-cli --user default --pass 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82 --cluster fix 192.168.1.11:6379 192.168.1.12:6380  192.168.1.13:6381 192.168.1.14:6382 192.168.1.15:6383 192.168.1.16:6384 192.168.1.17:6385 192.168.1.18:6386 192.168.1.19:6387 
+
+#
+# redis-cli --user default --pass 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82 --cluster fix re1:6379 re2:6380 re3:6381 re4:6382 re5:6383 re6:6384 re7:6385 re8:6386 re9:6387 
+#
+
+# --cluster-search-multiple-owner --cluster-fix-with-unreachable-masters
+#
 
 #
 # EOF (2024/07/08)
