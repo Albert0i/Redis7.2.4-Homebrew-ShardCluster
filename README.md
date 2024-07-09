@@ -35,6 +35,8 @@ connect to `re1`. The rest is history...
 ---
 ### [The Road Not Taken](https://www.poetryfoundation.org/poems/44272/the-road-not-taken)
 
+["With great power comes great responsibility."](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility)
+
 
 #### I. System Setup 
 Combining instructions on [RU301](https://redis.io/university/courses/ru301/) and experience from [Redis7.2.4-Homebrew-Replication](https://github.com/Albert0i/Redis7.2.4-Homebrew-Replication), a version of `redis.conf` is devised for each node, nine in total. 
@@ -142,10 +144,6 @@ Five master nodes failed, two master nodes and one slave node remain. Which mean
 1. [Redis cluster specification](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/)
 2. [Redis configuration](https://redis.io/docs/latest/operate/oss_and_stack/management/config/)
 3. [Question: What are the limitations of a Redis cluster?](https://www.dragonflydb.io/faq/limitations-of-redis-cluster)
-
-
-
-["With great power comes great responsibility."](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility)
 
 
 ### EOF (2024/07/12)
