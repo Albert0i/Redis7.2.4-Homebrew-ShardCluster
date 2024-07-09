@@ -40,7 +40,7 @@ connect to `re1`. The rest is history...
 
 
 #### I. System Setup 
-Combining instructions on [RU301](https://redis.io/university/courses/ru301/) and experience from [Redis7.2.4-Homebrew-Replication](https://github.com/Albert0i/Redis7.2.4-Homebrew-Replication), a version of `redis.conf` is devised for each node. Redis recommend a minimum of 3 master nodes each with 2 replicas. 
+Combining instructions on [RU301](https://redis.io/university/courses/ru301/) and experience from [Redis7.2.4-Homebrew-Replication](https://github.com/Albert0i/Redis7.2.4-Homebrew-Replication), a version of `redis.conf` is devised for each node, nine in total. 
 ```
 # redis.conf file
 port 6379
@@ -56,6 +56,9 @@ masterauth 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82
 . . . 
 ```  
 
+It is *recommended* to have a minimum of 3 master nodes and each with 2 replicas. 
+
+![alt 3 nodes](img/3-nodes.JPG)
 
 
 #### II.
