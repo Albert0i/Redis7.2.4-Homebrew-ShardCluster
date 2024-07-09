@@ -33,7 +33,8 @@ redis-cli -c -h 192.168.1.11 -p 6379 --user alberto --pass 123456 --no-auth-warn
 connect to `re1`. The rest is history...
 
 ---
-### "[With great power comes great responsibility.](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility)" 
+### [The Road Not Taken](https://www.poetryfoundation.org/poems/44272/the-road-not-taken)
+
 
 **Argument**
 
@@ -65,5 +66,6 @@ masterauth 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82
 2. [Redis configuration](https://redis.io/docs/latest/operate/oss_and_stack/management/config/)
 3. [Question: What are the limitations of a Redis cluster?](https://www.dragonflydb.io/faq/limitations-of-redis-cluster)
 
+["With great power comes great responsibility."](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility)
 
 ### EOF (2024/07/12)
