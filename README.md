@@ -70,7 +70,7 @@ redis-cli --user default --pass 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696
 ```
 
 
-#### II. Check to see if failover success
+#### II. Stress test
 In terminal 1
 ```
 npm test
@@ -96,7 +96,7 @@ According to our network setting, the `counter` key is stored in node number two
 docker-compose stop re2
 ```
 
-Terminal stop for a while and then starts counting. To repeat the previous step and continue to stop node number 8 
+Terminal stop for a while and then restarts counting. To repeat the previous step and continue to stop node number 8 
 ```
 docker-compose stop re8
 ```
