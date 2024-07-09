@@ -33,14 +33,28 @@ redis-cli -c -h 192.168.1.11 -p 6379 --user alberto --pass 123456 --no-auth-warn
 connect to `re1`. The rest is history...
 
 ---
-### [The Road Not Taken](https://www.poetryfoundation.org/poems/44272/the-road-not-taken)
+### "[With great power comes great responsibility.](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility)" 
 
 **Argument**
 
-"[With great power comes great responsibility.](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility)" 
-
 
 #### I. System Setup 
+Combining instructions on [RU301](https://redis.io/university/courses/ru301/) and experience from [Redis7.2.4-Homebrew-Replication](https://github.com/Albert0i/Redis7.2.4-Homebrew-Replication), a version of `redis.conf` is devised for each node. Redis recommend a minimum of 3 master nodes each with 2 replicas. 
+```
+# redis.conf file
+port 6379
+cluster-enabled yes
+cluster-config-file nodes6379.conf
+cluster-node-timeout 5000
+
+# Create a strong password here
+requirepass 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82
+
+# AUTH password of the primary instance in case this instance becomes a replica
+masterauth 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82
+. . . 
+```  
+
 
 
 #### II.
