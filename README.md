@@ -36,9 +36,6 @@ connect to `re1`. The rest is history...
 ### [The Road Not Taken](https://www.poetryfoundation.org/poems/44272/the-road-not-taken)
 
 
-**Argument**
-
-
 #### I. System Setup 
 Combining instructions on [RU301](https://redis.io/university/courses/ru301/) and experience from [Redis7.2.4-Homebrew-Replication](https://github.com/Albert0i/Redis7.2.4-Homebrew-Replication), a version of `redis.conf` is devised for each node, nine in total. 
 ```
