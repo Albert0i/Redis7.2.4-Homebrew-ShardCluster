@@ -132,11 +132,20 @@ efc3c9e32fa740464eb26317bbaa526a9fa0c0bd 192.168.1.12:6380@16380 master,fail - 1
 Five master nodes failed, two master nodes and one slave node remain. Which means for a 3x3 cluster, at most four nodes can fail. 
 
 
-#### III. Bibliography
+#### III. [Cluster Manager Command](redis-cli-cluster.txt)
+
+
+#### IV. [Cluster subcommands](cluster-subcommand.txt)
+
+
+#### V. Bibliography
 1. [Redis cluster specification](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/)
 2. [Redis configuration](https://redis.io/docs/latest/operate/oss_and_stack/management/config/)
 3. [Question: What are the limitations of a Redis cluster?](https://www.dragonflydb.io/faq/limitations-of-redis-cluster)
 
+
+
 ["With great power comes great responsibility."](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility)
+
 
 ### EOF (2024/07/12)
