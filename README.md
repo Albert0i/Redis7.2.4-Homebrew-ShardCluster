@@ -15,6 +15,7 @@ cd ..
 make up 
 make cmd 
 ```
+
 ```
 redis-cli --user admin --pass 123456 --cluster create re1:6379 re2:6380 re3:6381 re4:6382 re5:6383 re6:6384 re7:6385 re8:6386 re9:6387 --cluster-replicas 2
 ```
@@ -29,7 +30,7 @@ or
 redis-cli -c -h 192.168.1.11 -p 6379 --user alberto --pass 123456 --no-auth-warning
 ```
 
-connect to `re1` and so on... 
+connect to `re1`. The rest is history...
 
 ---
 ### [The Road Not Taken](https://www.poetryfoundation.org/poems/44272/the-road-not-taken)

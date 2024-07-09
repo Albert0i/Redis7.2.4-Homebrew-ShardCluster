@@ -102,7 +102,7 @@ shards:
 # erase cluster
 #
 erase:
-	cmd /C rm -rf data
+	cmd /C rm -rfvI data
 	cmd /C md data\6379 data\6380 data\6381 data\6382 data\6383 data\6384 data\6385 data\6386 data\6387 	
 
 #
@@ -112,9 +112,13 @@ config:
 	nano .env
 
 #
-# To create cluster with: 
+# To create cluster (3x3): 
 # docker-compose exec creator cmd 
 # redis-cli --user default --pass 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82 --cluster create re1:6379 re2:6380 re3:6381 re4:6382 re5:6383 re6:6384 re7:6385 re8:6386 re9:6387 --cluster-replicas 2
+#
+# To create cluster (3x1): 
+# redis-cli --user default --pass 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82 --cluster create re1:6379 re2:6380 re3:6381 --cluster-replicas 1
+#
 # 
 # redis-cli -c --user default --pass 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82
 # redis-cli -c --pipe --user default --pass 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82 < commands.redis
@@ -131,6 +135,6 @@ config:
 #
 
 #
-# EOF (2024/07/08)
+# EOF (2024/07/12)
 #
 
