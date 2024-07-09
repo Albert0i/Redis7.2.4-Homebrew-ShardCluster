@@ -42,7 +42,10 @@ connect to `re1` and so on...
 #### II.
 
 
-#### III. 
+#### III. Bibliography
+1. [Redis cluster specification](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/)
+2. [Redis configuration](https://redis.io/docs/latest/operate/oss_and_stack/management/config/)
+3. [Question: What are the limitations of a Redis cluster?](https://www.dragonflydb.io/faq/limitations-of-redis-cluster)
 
 
 ### EOF (2024/07/12)
