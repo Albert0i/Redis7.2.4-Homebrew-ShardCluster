@@ -30,3 +30,19 @@ redis-cli -c -h 192.168.1.11 -p 6379 --user alberto --pass 123456 --no-auth-warn
 ```
 
 connect to `re1` and so on... 
+
+---
+### [The Road Not Taken](https://www.poetryfoundation.org/poems/44272/the-road-not-taken)
+
+**Argument**
+
+#### I. 
+
+
+#### II.
+
+
+#### III. 
+
+
+### EOF (2024/07/12)
