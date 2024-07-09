@@ -1,12 +1,17 @@
 Cluster Manager Commands:
+
   create         host1:port1 ... hostN:portN
                  --cluster-replicas <arg>
+
   check          <host:port> or <host> <port> - separated by either colon or space
                  --cluster-search-multiple-owners
+
   info           <host:port> or <host> <port> - separated by either colon or space
+
   fix            <host:port> or <host> <port> - separated by either colon or space
                  --cluster-search-multiple-owners
                  --cluster-fix-with-unreachable-masters
+
   reshard        <host:port> or <host> <port> - separated by either colon or space
                  --cluster-from <arg>
                  --cluster-to <arg>
@@ -15,6 +20,7 @@ Cluster Manager Commands:
                  --cluster-timeout <arg>
                  --cluster-pipeline <arg>
                  --cluster-replace
+
   rebalance      <host:port> or <host> <port> - separated by either colon or space
                  --cluster-weight <node1=w1...nodeN=wN>
                  --cluster-use-empty-masters
@@ -23,14 +29,19 @@ Cluster Manager Commands:
                  --cluster-pipeline <arg>
                  --cluster-threshold <arg>
                  --cluster-replace
+
   add-node       new_host:new_port existing_host:existing_port
                  --cluster-slave
                  --cluster-master-id <arg>
+
   del-node       host:port node_id
+
   call           host:port command arg arg .. arg
                  --cluster-only-masters
                  --cluster-only-replicas
+
   set-timeout    host:port milliseconds
+
   import         host:port
                  --cluster-from <arg>
                  --cluster-from-user <arg>
@@ -38,11 +49,13 @@ Cluster Manager Commands:
                  --cluster-from-askpass
                  --cluster-copy
                  --cluster-replace
+
   backup         host:port backup_directory
+
   help           
 
-For check, fix, reshard, del-node, set-timeout, info, rebalance, call, import, backup you can specify the host and port of any working node in the cluster.
+For check, fix, reshard, del-node, set-timeout, info, rebalance, call, import, backup 
+you can specify the host and port of any working node in the cluster.
 
 Cluster Manager Options:
   --cluster-yes  Automatic yes to cluster commands prompts
-
