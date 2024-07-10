@@ -25,10 +25,12 @@ help:
 	@echo 
 	@echo "	cmd		start cmd on re1"
 	@echo "	cli		start redis-cli on re1"
+	@echo "	check		check cluster"
+	@echo "	fix 		fix cluster"
 	@echo "	info		cluster info"
 	@echo "	nodes		cluster nodes"
 	@echo "	slots		cluster slots"
-	@echo "	shards		cluster shards"
+	@echo "	shards		cluster shards"	
 	@echo "	erase		erase cluster (danger)"
 	@echo "	config		edit configuration"
 
@@ -75,28 +77,49 @@ cli:
 	redis-cli -c --user ${AUTH_USER} --pass ${AUTH_PASS} --no-auth-warning 
 
 #
+# check cluster
+#
+check:
+	redis-cli --user ${AUTH_USER} --pass ${AUTH_PASS} --no-auth-warning --cluster check 127.0.0.1:6379
+e1:6379
+#
+# fix cluster
+#
+fix:
+	redis-cli --user ${AUTH_USER} --pass ${AUTH_PASS} --no-auth-warning --cluster fix 127.0.0.1:6379
+e1:6379
+
+#
 # cluster info
 #
 info:	
 	redis-cli --user ${AUTH_USER} --pass ${AUTH_PASS} --no-auth-warning cluster info
-	
+	@echo 
+	@echo "Check 'https://redis.io/docs/latest/commands/cluster-info/' for details"
+
 #
 # cluster nodes
 #
 nodes:	
 	redis-cli --user ${AUTH_USER} --pass ${AUTH_PASS} --no-auth-warning cluster nodes
+	@echo 
+	@echo "Check 'https://redis.io/docs/latest/commands/cluster-nodes/' for details"
 
 #
 # cluster slots
 #
 slots:	
 	redis-cli --user ${AUTH_USER} --pass ${AUTH_PASS} --no-auth-warning cluster slots
+	@echo 
+	@echo "Check 'https://redis.io/docs/latest/commands/cluster-slots/' for details"
 
 #
 # cluster shards
 #
 shards:	
 	redis-cli --user ${AUTH_USER} --pass ${AUTH_PASS} --no-auth-warning cluster shards
+	@echo 
+	@echo "Check 'https://redis.io/docs/latest/commands/cluster-shards/' for details"
 
 #
 # erase cluster
@@ -124,11 +147,15 @@ config:
 # redis-cli -c --pipe --user default --pass 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82 < commands.redis
 # 
 
+# To check cluster (3x1): 
+# redis-cli --user default --pass 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82 --cluster check re1:6379 re2:6380 re3:6381 --cluster-replicas 1
+#
+
 # rebalance
 # redis-cli --user default --pass 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82 --cluster rebalance 192.168.1.11 6379 192.168.1.12:6380  192.168.1.13:6381 192.168.1.14:6382 192.168.1.15:6383 192.168.1.16:6384 192.168.1.17:6385 192.168.1.18:6386 192.168.1.19 6387 
 
-#
-# redis-cli --user default --pass 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82 --cluster fix re1:6379 re2:6380 re3:6381 re4:6382 re5:6383 re6:6384 re7:6385 re8:6386 re9:6387 
+# fix 
+# redis-cli --user default --pass 1841e88255c4b855a570dc540d9d02a1c491f94f7c8e4696be9a7f6fc1c12f82 --cluster fix re5:6383
 #
 
 # --cluster-search-multiple-owner --cluster-fix-with-unreachable-masters
