@@ -1,64 +1,54 @@
-
-import 'dotenv/config'
-import { Redis } from "ioredis"
-
-  const cluster = new Redis.Cluster([
-      { host: "127.0.0.1",  port: 6379 }, 
-      { host: "127.0.0.1",  port: 6380 },
-      { host: "127.0.0.1",  port: 6381 }
-      ], 
-      {
-        scaleReads: "slave",
-        redisOptions: {
-          username: process.env.AUTH_USER,
-          password: process.env.AUTH_PASS,
-          showFriendlyErrorStack: true
-        }
-      });
+  import 'dotenv/config'
+  import { redisCluster } from "../src/config/redisCluster.js"
+  import assert from 'assert'
 
   // Main
-  const members = await cluster.smembers('person:ids')
-  assert(members.length === 1030)
+  const keyname = 'person:ids'
+  const fieldname = "visited"
 
-  // Set field "visited" to 0
-  for (let i=0; i < members.length; i++) 
-    await setField(members[i], "visited", 0)
-
-  // Test field "visited" value 
-  for (let i=0; i < members.length; i++) {
-      await testField(members[i], "visited", 0)
-  }
+  const card = await redisCluster.scard(keyname)
+  const members = await redisCluster.smembers(keyname)
+  assert(members.length === card)
   
-  // Add 1 to field "visited"
+  // Set field "visited" to 1
   for (let i=0; i < members.length; i++) 
-    await addField(members[i], "visited", 2)
+    await setField(members[i], fieldname, 1)
 
   // Test field "visited" value 
-  for (let i=0; i < members.length; i++) {
-      await testField(members[i], "visited", 2)
-  }
+  for (let i=0; i < members.length; i++) 
+      await testField(members[i], fieldname, 1)  
+  
+  // Add 2 to field "visited"
+  for (let i=0; i < members.length; i++) 
+    await addField(members[i], fieldname, 2)
 
-  await cluster.disconnect()
+  // Test field "visited" value 
+  for (let i=0; i < members.length; i++) 
+      await testField(members[i], fieldname, 3)
+
+  // Delete field "visited"
+  for (let i=0; i < members.length; i++) 
+    await delField(members[i], fieldname)  
+
+  await redisCluster.disconnect()
 
   async function setField(key, field, value) {
-    return await cluster.hset(key, field, value)
+    return await redisCluster.hset(key, field, value)
   }
 
   async function addField(key, field, value) {
-    return await cluster.hset(key, field, value)
+    return await redisCluster.hincrby(key, field, value)
   }
 
   async function testField(key, field, value) {
-    let retval = await cluster.hget(key, field)
-    if (parseInt(retval, 10) !== value) 
-        console.log(`key = ${key}, returned value=${retval}, expected value=${value}`)
+    let retval = await redisCluster.hget(key, field)
+    if (retval != value) 
+        console.log(`key = ${key}, got value=${retval}, expected value=${value}`)
   }
   
-  function assert(condition, message) {
-    if (!condition) {
-      throw new Error(message);
-    }
-  }
+  async function delField(key, field) {
+    return await redisCluster.hdel(key, field)
+  }  
 
   /*
      ioredis

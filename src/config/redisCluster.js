@@ -7,7 +7,8 @@ import { Redis } from "ioredis"
       { host: "127.0.0.1",  port: 6381 }
       ], 
       {
-        scaleReads: "slave",
+        // Using SSCAN with scaleReads: "slave" will give incorrent number of elements. 
+        //scaleReads: "slave",
         redisOptions: {
           username: process.env.AUTH_USER,
           password: process.env.AUTH_PASS,

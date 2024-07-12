@@ -1,14 +1,10 @@
 import 'dotenv/config'
-import { createClient } from 'redis'
+import { Redis } from 'ioredis'
 
-const redisClient = new createClient({
-        url: process.env.REDIS_URL || 'redis://127.0.0.1:6379'
-    });
-redisClient.on('error', (err) => console.log('Redis Client Error', err));
-
-await redisClient.connect()
-const pong = await redisClient.ping()
-console.log(pong)
+const redisClient = new Redis({
+    port: 7000, // Redis port
+    host: "127.0.0.1", // Redis host
+  });
 
 export { redisClient }
 
