@@ -8,7 +8,7 @@
 
   const card = await redisCluster.scard(keyname)
   const members = await redisCluster.smembers(keyname)
-  assert(members.length === card)
+  assert.strictEqual(members.length, card, "Error in scard and smember.")
   
   // Set field "visited" to 1
   for (let i=0; i < members.length; i++) 
