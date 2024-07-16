@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "stub": "start \"stub server\" /MIN redis-server ./stub/conf/redis.conf",
+    "memurai": "start \"memurai server\" /MIN memurai ./stub/conf/redis.conf",
     "test": "node src/test.js"
   },
   "keywords": [],
