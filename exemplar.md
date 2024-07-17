@@ -4,7 +4,7 @@
 
 
 #### Prologue
-Why people tends to put things in tabular form? Because it's the most natural and effective way to organize things. Because we are taught and tamed to do so... 
+Why people tends to put things in tabular form? Because it's the most natural and effective way. Because we are taught and tamed to do so... 
 
 
 #### I. Address book 
