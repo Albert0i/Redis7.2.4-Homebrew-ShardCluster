@@ -4,11 +4,11 @@
 
 
 #### Prologue
-Why people tends to put things in tabular format? Because it's the most natural and effective way to organize entries. Because we are taught and tamed to do so. 
+Why people tends to put things in tabular format? Because we are taught and tamed to do so. Because it's the most natural and effective way to organize entries. 
 
-Shopping list, address book and bank balance are typical exemplars of tabular data. As entries grow in size, repeatedly looking up our address book is quite time-consuming. We need to way to make life easier. Usually, address book are categoried by A~Z, to look up "Roger Ackroyd", just starts on category "R" and onward. This greatly simplify and speed up the search process. 
+Address book is typical exemplars of tabular data. As acquaintance grows in size, repeatedly looking up our address book is quite time-consuming. We need to way to make life easier. Usually, address book are categoried by A~Z, to look up "Roger Ackroyd", just starts on category "R" and onward. This greatly simplify and speed up the search process. 
 
-As we delve into finer grain of address book, we found that "All entries are equal, but some entries are more equal than others", ie. change of marital status would be more often than change of phone number. 
+As we delve into finer grain of address book, we found that "All entries are equal, but some entries are more equal than others", ie. change of some part of entry is more often than the other. 
 
 
 #### Bibliography 
