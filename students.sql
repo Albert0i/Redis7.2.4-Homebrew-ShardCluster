@@ -21,13 +21,13 @@ CREATE TABLE Scores (
 
 -- Sample student data
 INSERT INTO Students (StudentName)
-VALUES (('John'), ('Jane'), ('Alice'), ('Bob'), ('Charlie'));
+VALUES ('John'), ('Jane'), ('Alice'), ('Bob'), ('Charlie');
 
 -- Sample score data
 INSERT INTO Scores (StudentID, Subject, Score)
 VALUES
   -- John's scores
-  ((1, 'Math', 90),
+  (1, 'Math', 90),
   (1, 'Science', 85),
   (1, 'History', 92),
   (1, 'English', 88),
@@ -59,5 +59,5 @@ VALUES
   (5, 'Science', 91),
   (5, 'History', 86),
   (5, 'English', 87),
-  (5, 'Physics', 90));
+  (5, 'Physics', 90);
   
