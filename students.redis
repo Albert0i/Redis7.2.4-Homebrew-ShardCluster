@@ -1,0 +1,6 @@
+
+HSET Student:1 studentName 'John' math 90 science 85 history 92 english 88 physics 87 
+HSET Student:2 studentName 'Jane' math 78 science 92 history 85 english 90 physics 84 
+HSET Student:3 studentName 'Alice' math 88 science 79 history 90 english 82 physics 91 
+HSET Student:4 studentName 'Bob' math 95 science 87 history 88 english 89 physics 92 
+HSET Student:5 studentName 'Charlie' math 82 science 91 history 86 english 87 physics 90 
