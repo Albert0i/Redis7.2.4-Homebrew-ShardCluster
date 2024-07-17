@@ -12,6 +12,8 @@ As we delve into finer grain of address book, we found that "All entries are equ
 
 If our address book contains millions of entries, we need methods other than a simple categorization. To contine with our address book, we need to differentiate between ephemeral and durable data, to differentiate between hot and cold data. 
 
+RDBMS is another exemplar of tabular data with unparalleled power on table joining, and yet has naught to make out propensity of data, the access method is always index scan or full table scan. 
+
 
 #### Bibliography 
 1. [Moving from Relational to Key-Value Databases](https://www.memurai.com/blog/moving-from-relational-to-key-value-databases)
