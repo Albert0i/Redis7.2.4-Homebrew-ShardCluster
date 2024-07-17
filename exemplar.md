@@ -8,7 +8,9 @@ Why people tends to put things in tabular format? Because we are taught and tame
 
 Address book is typical exemplars of tabular data. As acquaintance grows in size, repeatedly looking up our address book is quite time-consuming. We need to way to make life easier. Usually, address book are categoried by A~Z, to look up "Roger Ackroyd", just starts on category "R" and onward. This greatly simplify and speed up the search process. 
 
-As we delve into finer grain of address book, we found that "All entries are equal, but some entries are more equal than others", ie. change of some part of entry is more often than the other. 
+As we delve into finer grain of address book, we found that "All entries are equal, but some entries are more equal than others", ie. change of some entries are more often than the others. This is quite natural since some data are more transient than the others. In the same way, some entries required repeated access than the others. 
+
+If our address book contains millions of entries, we need methods other than a simple categorization. To contine with our address book, we need to differentiate between ephemeral and durable data, to differentiate between    data. 
 
 
 #### Bibliography 
