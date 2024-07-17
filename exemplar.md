@@ -10,7 +10,7 @@ Address book is typical exemplars of tabular data. As acquaintance grows in size
 
 As we delve into finer grain of address book, we found that "All entries are equal, but some entries are more equal than others", ie. change of some entries are more often than the others. This is quite natural since some data are more transient than the others. In the same way, some entries required repeated access than the others. 
 
-If our address book contains millions of entries, we need methods other than a simple categorization. To contine with our address book, we need to differentiate between ephemeral and durable data, to differentiate between    data. 
+If our address book contains millions of entries, we need methods other than a simple categorization. To contine with our address book, we need to differentiate between ephemeral and durable data, to differentiate between hot data and cold data. 
 
 
 #### Bibliography 
