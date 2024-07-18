@@ -6,15 +6,17 @@
 #### Prologue
 Why people prefers to putting things in tabular form? Because it's the most natural and effective way. Because we are taught and tamed to do so... 
 
+Hearly can i recollect the days without RDBMS for I have been working with them for more than three decades. The DDL and DML syntax is deep in my bone and marrow, rigid schema has planted in my subconscious. Never was i heard of, thought of and dreamed of other means... 
+
 
 #### I. Address book 
-Address book is typical exemplars of tabular data. As acquaintance grows in size, repeatedly looking up our address book is quite time-consuming. We need to way to make life easier. Usually, address book are categoried by A~Z, to look up "Roger Ackroyd", just starts on category "R" and onward. This greatly simplify and speed up the search process. 
+Address book is a typical exemplar of tabular data. As social circle grows in size, repeatedly looking up our address book is quite time-consuming. Usually, address book are categoried by A~Z, to look up "Roger Ackroyd", just starts on category "R" and onward. This greatly simplify and speed up the search process. 
 
-As we delve into finer grain of address book, we found that "All entries are equal, but some entries are more equal than others", ie. change of some entries are more often than the others. This is quite natural since some data are more transient than the others. In the same way, some entries required repeated access than the others. 
+As we delve into finer grain of address book, we found that "All entries are equal, but some entries are more equal than others", ie. changes on some entries are more often than the others. In the same way, some entries are more repeatedly accessed than the others. 
 
-If our address book contains millions of entries, we need methods other than a simple categorization. To contine with our address book, we need to differentiate between ephemeral and durable data, to differentiate between hot and cold data. 
+What if our address book contains millions of entries, we need other means other than simple categorization. We need to differentiate between ephemeral and durable data, to differentiate between frequently access and infrequently access data. 
 
-RDBMS is another exemplar of tabular data with unparalleled power on table joining, and yet has naught to make out propensity of data, the access method is always index scan or full table scan. 
+RDBMS is another exemplar of tabular data with unparalleled power on table joining and aggregation, and yet has naught to make out propensity of data. The access method is none other than `index scan` or `full table scan`. 
 
 
 #### II. Students' Score 
@@ -41,7 +43,7 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         // Create a connection to the Redis server
-        var options = ConfigurationOptions.Parse("127.0.0.1:6379"); // host1:port1, host2:port2, ...        
+        var options = ConfigurationOptions.Parse("127.0.0.1:6379"); 
         options.User = "alberto"; 
         options.Password = "123456";
         options.AbortOnConnectFail = false;
