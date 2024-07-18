@@ -97,6 +97,21 @@ HGETALL Students:3
 12) "91"
 ```
 
+To list scores on history in descending order: 
+```
+ZREVRANGE Students:history 0 -1 WITHSCORES
+1) "3"
+2) "90"
+3) "4"
+4) "88"
+5) "5"
+6) "86"
+7) "2"
+8) "85"
+9) "1"
+10) "82"
+```
+
 
 #### III. Students' Score (cont.)
 
