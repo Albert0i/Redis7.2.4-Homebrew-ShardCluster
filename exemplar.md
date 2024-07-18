@@ -180,6 +180,8 @@ In Redis, everything is plain and clear, every single operation has a time-compl
 
 
 #### III. Students' Score (cont.)
+So far we know that RDBMS has unrivalled power on table joining and aggregation. Redis has no built-in secondary index on it's own as you can see, we have used Sorted Set as our secondary index. With the emerge of [RediSearch](https://github.com/RediSearch/RediSearch), Redis is now bestowed with capability of search and aggregation to some extent. 
+
 ```
 SELECT Subject, avg(Score), min(Score), max(Score)  
 FROM scores
@@ -194,6 +196,8 @@ ORDER BY Subject
 | Math | 86.6 | 78 | 95 |
 | Physics | 88.8 | 84 | 92 |
 | Science | 86.8 | 79 | 92 |
+
+
 
 
 #### VI. Bibliography 
