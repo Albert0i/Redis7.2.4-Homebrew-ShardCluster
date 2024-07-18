@@ -271,6 +271,11 @@ ORDER BY Subject
 
 Use [FT.AGGREGATE](https://redis.io/docs/latest/commands/ft.aggregate/) to do that: 
 ```
+FT.AGGREGATE Students:idx * 
+   GROUPBY 1 @english 
+      REDUCE avg 1 @english AS avg_score
+
+
 ```
 
 
