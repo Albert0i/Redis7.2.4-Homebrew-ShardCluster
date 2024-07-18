@@ -182,6 +182,77 @@ In Redis, everything is plain and clear, every single operation has a time-compl
 #### III. Students' Score (cont.)
 So far we know that RDBMS has unrivalled power on table joining and aggregation. Redis has no built-in secondary index on it's own as you can see, we have used Sorted Set as our secondary index. With the emerge of [RediSearch](https://github.com/RediSearch/RediSearch), Redis is now bestowed with capability of search and aggregation to some extent. 
 
+To create index with [FT.CREATE](https://redis.io/docs/latest/commands/ft.create/): 
+```
+FT.CREATE Students:idx 
+   ON HASH PREFIX 1 Students: SCHEMA 
+   studentName AS name TEXT SORTABLE 
+   math NUMERIC SORTABLE    
+   science NUMERIC SORTABLE 
+   history NUMERIC SORTABLE
+   english NUMERIC SORTABLE
+   physics NUMERIC SORTABLE
+```
+
+To find out Student John with [FT.SEARCH](https://redis.io/docs/latest/commands/ft.search/):
+```
+FT.SEARCH Students:idx @name:john 
+1) "1"
+2) "Students:1"
+3) 1) "studentName"
+   2) "John"
+   3) "math"
+   4) "90"
+   5) "science"
+   6) "85"
+   7) "history"
+   8) "92"
+   9) "english"
+   10) "88"
+   11) "physics"
+   12) "87"
+```
+
+To find out Student with english score 75~85 (inclusive): 
+```
+FT.SEARCH Students:idx "@english:[75 85]"
+1) "1"
+2) "Students:3"
+3) 1) "studentName"
+   2) "Alice"
+   3) "math"
+   4) "88"
+   5) "science"
+   6) "79"
+   7) "history"
+   8) "90"
+   9) "english"
+   10) "82"
+   11) "physics"
+   12) "91"
+```
+
+To find out Student with math and history score 90~100 (inclusive): 
+```
+FT.SEARCH Students:idx "@math:[90 100] @history:[90 100]"
+1) "1"
+2) "Students:1"
+3) 1) "studentName"
+   2) "John"
+   3) "math"
+   4) "90"
+   5) "science"
+   6) "85"
+   7) "history"
+   8) "92"
+   9) "english"
+   10) "88"
+   11) "physics"
+   12) "87"
+```
+
+There are lots of combination you can play with. 
+
 ```
 SELECT Subject, avg(Score), min(Score), max(Score)  
 FROM scores
@@ -196,8 +267,6 @@ ORDER BY Subject
 | Math | 86.6 | 78 | 95 |
 | Physics | 88.8 | 84 | 92 |
 | Science | 86.8 | 79 | 92 |
-
-
 
 
 #### VI. Bibliography 
