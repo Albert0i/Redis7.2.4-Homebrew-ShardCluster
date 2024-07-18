@@ -100,16 +100,16 @@ HGETALL Students:3
 To list scores on history in descending order: 
 ```
 ZREVRANGE Students:history 0 -1 WITHSCORES
-1) "3"
-2) "90"
-3) "4"
-4) "88"
-5) "5"
-6) "86"
-7) "2"
-8) "85"
-9) "1"
-10) "82"
+1) "1"
+2) "92"
+3) "3"
+4) "90"
+5) "4"
+6) "88"
+7) "5"
+8) "86"
+9) "2"
+10) "85"
 ```
 
 To list scores on history in descending order in names: 
@@ -133,20 +133,63 @@ return retTable "
 
 ```
 EVALSHA "a50238803b4bcdada6c1ce307fcd9e79b3afb35c" 1 history
-1) 1) "Alice"
+1) 1) "John"
+   2) "92"
+2) 1) "Alice"
    2) "90"
-2) 1) "Bob"
+3) 1) "Bob"
    2) "88"
-3) 1) "Charlie"
+4) 1) "Charlie"
    2) "86"
-4) 1) "Jane"
+5) 1) "Jane"
    2) "85"
-5) 1) "John"
-   2) "82"
 ```
+
+In relational database, we would use: 
+```
+SELECT a.StudentName, b.Score
+FROM students a, scores b 
+WHERE a.StudentID = b.StudentID AND 
+      b.Subject = "history"
+ORDER BY b.Score DESC
+```
+
+| StudentName | Score |
+| ----------- | ----------- |
+| John | 92 |
+| Alice | 90 |
+| Bob | 88 |
+| Charlie | 86 |
+| Jane | 85 |
+
+As you can see: 
+1. Hash is used as underlaying data structure for Student;
+2. Sorted Set is used for for indexing purpose;
+3. No table join is allowed, have to use Lua script instead; 
+4. Indexes have to be maintained by ourselves; 
+
+So, what's the point? 
+1. Access to Hash data is super fast; 
+2. Sorted set is efficient and easy to maintain;  
+3. Use Lua script to mix and match between data structures; 
+4. Performance doesn't come for free.
 
 
 #### III. Students' Score (cont.)
+```
+SELECT Subject, avg(Score), min(Score), max(Score)  
+FROM scores
+GROUP BY Subject
+ORDER BY Subject
+```
+
+| Subject | avg(Score) | min(Score) | max(Score) |
+| ----------- | ----------- |----------- |----------- |
+| English | 87.2 | 82 | 90 |
+| History | 88.2 | 85 | 92 |
+| Math | 86.6 | 78 | 95 |
+| Physics | 88.8 | 84 | 92 |
+| Science | 86.8 | 79 | 92 |
 
 
 #### VI. Bibliography 
