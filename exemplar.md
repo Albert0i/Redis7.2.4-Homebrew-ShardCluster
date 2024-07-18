@@ -60,6 +60,43 @@ It indicates that we are going to access Scores table using StudentID, and combi
 
 To enforece a restriction on Score must based on Student. 
 
+Take a look at the following code fragment:
+```
+HSET Students:1 studentName 'John' math 90 science 85 history 92 english 88 physics 87 
+HSET Students:2 studentName 'Jane' math 78 science 92 history 85 english 90 physics 84 
+HSET Students:3 studentName 'Alice' math 88 science 79 history 90 english 82 physics 91 
+HSET Students:4 studentName 'Bob' math 95 science 87 history 88 english 89 physics 92 
+HSET Students:5 studentName 'Charlie' math 82 science 91 history 86 english 87 physics 90 
+```
+
+Without schema, we store domain objects in hash. 
+```
+ZADD Students:math 90 1 78 2 88 3 95 4 82 5
+ZADD Students:science 85 1 92 2 79 3 87 4 91 5
+ZADD Students:history 82 1 85 2 90 3 88 4 86 5
+ZADD Students:english 88 1 90 2 82 3 89 4 87 5
+ZADD Students:physics 87 1 84 2 91 3 82 4 90 5
+
+ZADD Students:names 1 'John' 1 'Jane' 1 'Alice' 1 'Bob' 1 'Charlie'
+```
+
+And sex more Sorted Sets for index purpose. To access by student 3, simply use: 
+```
+HGETALL Students:3
+1) "studentName"
+2) "Alice"
+3) "math"
+4) "88"
+5) "science"
+6) "79"
+7) "history"
+8) "90"
+9) "english"
+10) "82"
+11) "physics"
+12) "91"
+```
+
 
 #### III. Students' Score (cont.)
 
