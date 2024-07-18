@@ -20,7 +20,45 @@ RDBMS is another exemplar of tabular data with unparalleled power on table joini
 
 
 #### II. Students' Score 
+We are going to setup tables to record students and accompanying scores on each subject.  
+```
+CREATE TABLE Students (
+  StudentID INT PRIMARY KEY AUTO_INCREMENT,
+  StudentName VARCHAR(50),
 
+  INDEX idx_StudentName (StudentName ASC)
+);
+
+CREATE TABLE Scores (
+  ScoreID INT PRIMARY KEY AUTO_INCREMENT,
+  StudentID INT,
+  Subject VARCHAR(50),
+  Score INT,
+
+  INDEX idx_StudentID (StudentID),
+  INDEX idx_Subject_Score (Subject, Score),
+  FOREIGN KEY (StudentID) REFERENCES Students(StudentID)
+);
+```
+
+Besides primary key, a secondary index is created on Students table: 
+```
+INDEX idx_StudentName (StudentName ASC)
+```
+
+Semantically speaking, it indicates that we are going to acccess Students table by StudentName, even though it is not mandatory to do so. And Scores table: 
+```
+  INDEX idx_StudentID (StudentID),
+  INDEX idx_Subject_Score (Subject, Score),
+```
+
+It indicates that we are going to access Scores table using StudentID, and combination of Subject and Score, even though it is not mandatory to do so. 
+
+```  
+  FOREIGN KEY (StudentID) REFERENCES Students(StudentID)
+```
+
+To enforece a restriction on Score must based on Student. 
 
 
 #### III. Students' Score (cont.)
