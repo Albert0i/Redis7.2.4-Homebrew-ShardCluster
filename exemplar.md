@@ -145,6 +145,18 @@ EVALSHA "a50238803b4bcdada6c1ce307fcd9e79b3afb35c" 1 history
    2) "85"
 ```
 
+As you can see: 
+1. Hash is used as underlaying data structure for Student;
+2. Sorted Set is used for for indexing purpose;
+3. No table join is allowed, have to use Lua script instead; 
+4. Indexes have to be maintained by ourselves; 
+
+So, what's the point? 
+1. Access to Hash data is super fast; 
+2. Sorted Set is efficient and easy to maintain; 
+3. Use Lua script to mix and match between data structures; 
+4. Performance doesn't come for free.
+
 In relational database, we would use: 
 ```
 SELECT a.StudentName, b.Score
@@ -162,17 +174,9 @@ ORDER BY b.Score DESC
 | Charlie | 86 |
 | Jane | 85 |
 
-As you can see: 
-1. Hash is used as underlaying data structure for Student;
-2. Sorted Set is used for for indexing purpose;
-3. No table join is allowed, have to use Lua script instead; 
-4. Indexes have to be maintained by ourselves; 
+What happens behind the scenes of SQL execution involves parsing, compilation, optimization and result retrieval and transfer of data, which makes it an expensive operation even though the aforementioned indexes is used. Let alone hidden cost regarding data distribution and applicability of indexes. 
 
-So, what's the point? 
-1. Access to Hash data is super fast; 
-2. Sorted set is efficient and easy to maintain;  
-3. Use Lua script to mix and match between data structures; 
-4. Performance doesn't come for free.
+In Redis, everything is plain and clear, every single operation has a time-complexity and overall latency can be estimated easily. 
 
 
 #### III. Students' Score (cont.)
