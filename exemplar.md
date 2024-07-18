@@ -20,7 +20,7 @@ RDBMS is another exemplar of tabular data with unparalleled power on table joini
 
 
 #### II. Students' Score 
-We are going to setup tables to record students and accompanying scores on each subject.  
+We are going to setup tables to record students and scores on each subject.  
 ```
 CREATE TABLE Students (
   StudentID INT PRIMARY KEY AUTO_INCREMENT,
