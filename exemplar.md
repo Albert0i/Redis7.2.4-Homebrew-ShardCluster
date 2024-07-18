@@ -276,6 +276,19 @@ FT.AGGREGATE Students:idx *
    REDUCE avg 1 @english AS avg_english 
    REDUCE min 1 @english AS min_english 
    REDUCE max 1 @english AS max_english 
+   REDUCE avg 1 @history AS avg_history 
+   REDUCE min 1 @history AS min_history 
+   REDUCE max 1 @history AS max_history 
+   REDUCE avg 1 @math AS avg_math 
+   REDUCE min 1 @math AS min_math 
+   REDUCE max 1 @math AS max_math 
+   REDUCE avg 1 @physics AS avg_physics 
+   REDUCE min 1 @physics AS min_physics 
+   REDUCE max 1 @physics AS max_physis 
+   REDUCE avg 1 @science AS avg_science 
+   REDUCE min 1 @science AS min_science 
+   REDUCE max 1 @science AS max_science 
+
 1) "1"
 2) 1) "avg_english"
    2) "87.2"
@@ -283,7 +296,10 @@ FT.AGGREGATE Students:idx *
    4) "82"
    5) "max_english"
    6) "90"   
+. . .    
 ```
+
+See! There is always an alternative to work around... 
 
 
 #### VI. Bibliography 
