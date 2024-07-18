@@ -251,7 +251,7 @@ FT.SEARCH Students:idx "@math:[90 100] @history:[90 100]"
    12) "87"
 ```
 
-There are lots of combination you can play with. 
+There are lots of combination you can play with. And for: 
 
 ```
 SELECT Subject, avg(Score), min(Score), max(Score)  
@@ -267,6 +267,11 @@ ORDER BY Subject
 | Math | 86.6 | 78 | 95 |
 | Physics | 88.8 | 84 | 92 |
 | Science | 86.8 | 79 | 92 |
+
+
+Use [FT.AGGREGATE](https://redis.io/docs/latest/commands/ft.aggregate/) to do that: 
+```
+```
 
 
 #### VI. Bibliography 
