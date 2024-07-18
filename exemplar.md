@@ -80,7 +80,7 @@ ZADD Students:physics 87 1 84 2 91 3 82 4 90 5
 ZADD Students:names 1 'John' 1 'Jane' 1 'Alice' 1 'Bob' 1 'Charlie'
 ```
 
-And sex more Sorted Sets for index purpose. To access by student 3, simply use: 
+And sex more Sorted Sets for index purpose. To access student 3, simply use: 
 ```
 HGETALL Students:3
 1) "studentName"
@@ -110,6 +110,39 @@ ZREVRANGE Students:history 0 -1 WITHSCORES
 8) "85"
 9) "1"
 10) "82"
+```
+
+To list scores on history in descending order in names: 
+```
+SCRIPT LOAD "
+local key = KEYS[1]
+local id = ''
+local score = 0.0
+local name = ''
+local scores = redis.call('ZREVRANGE', 'Students:'..key,  0, -1, 'WITHSCORES')
+local retTable = {}
+
+for i = 1, #scores, 2 do
+    id = scores[i]
+    score = tonumber(scores[i + 1])
+    name = redis.call('HGET', 'Students:'..id, 'studentName')
+    table.insert(retTable, { name, score })
+end
+return retTable "
+```
+
+```
+EVALSHA "a50238803b4bcdada6c1ce307fcd9e79b3afb35c" 1 history
+1) 1) "Alice"
+   2) "90"
+2) 1) "Bob"
+   2) "88"
+3) 1) "Charlie"
+   2) "86"
+4) 1) "Jane"
+   2) "85"
+5) 1) "John"
+   2) "82"
 ```
 
 
