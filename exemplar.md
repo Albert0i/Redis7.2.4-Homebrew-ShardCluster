@@ -196,7 +196,7 @@ FT.CREATE Students:idx
 
 To find out Student John with [FT.SEARCH](https://redis.io/docs/latest/commands/ft.search/):
 ```
-FT.SEARCH Students:idx @name:john 
+FT.SEARCH Students:idx "@name:john" 
 1) "1"
 2) "Students:1"
 3) 1) "studentName"
