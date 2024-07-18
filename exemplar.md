@@ -16,10 +16,11 @@ As we delve into finer grain of address book, we found that "All entries are equ
 
 What if our address book contains millions of entries, we need other means other than simple categorization. We need to differentiate between ephemeral and durable data, to differentiate between frequently access and infrequently access data. 
 
-RDBMS is another exemplar of tabular data with unparalleled power on table joining and aggregation, and yet has naught to make out propensity of data. The access method is none other than `index scan` or `full table scan`. 
+RDBMS is another exemplar of tabular data with unparalleled power on table joining and aggregation, and yet has naught to make out propensity of data. The access method is none other than `index scan` and `full table scan`. 
 
 
 #### II. Students' Score 
+
 
 
 #### III. Students' Score (cont.)
