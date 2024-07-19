@@ -374,7 +374,15 @@ MODULE list
 
 
 #### IV. The metrics
+| Method | Time |
+| ----------- | ----------- |
+| EVALSHA | 81 µs |
+| SORTBY | 67 µs |
+| GROUPBY | 103 µs |
+| SQL JOIN | 0.6 ms |
+| SQL GROUP BY | 1.7 ms |
 
+1 second = 1,000 milliseconds (ms) = 1,000,000 microseconds (µs)
 
 
 #### V. Bibliography 
