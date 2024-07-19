@@ -6,7 +6,7 @@
 #### Prologue
 Why people prefers to putting things in *tabular* form? Because it's the most natural and effective way. Because we are taught and tamed to do so... 
 
-Hearly can i recollect the days without RDBMS for I have been working with them for more than three decades. The DDL and DML syntax is deep in my bone and marrow, rigid schema has planted in my subconscious. Never was i heard of, thought of and dreamet of other means... 
+Hearly can i recollect the days without RDBMS for I have been working with them for more than three decades. The [DDL]() and [DML](https://en.wikipedia.org/wiki/Data_manipulation_language) syntax is deep in my bone and marrow, rigid schema has planted in my subconscious. Never was i heard of, thought of and dreamet of other means... 
 
 
 #### I. Address book 
@@ -20,7 +20,7 @@ RDBMS is another exemplar of tabular data with unparalleled power on table joini
 
 
 #### II. Students' Score 
-We are going to setup tables to record students and scores on each subject.  
+Let's kick start with a mini Students' Score project. We are going to setup tables to record students and scores on each subject.  
 ```
 CREATE TABLE Students (
   StudentID INT PRIMARY KEY AUTO_INCREMENT,
