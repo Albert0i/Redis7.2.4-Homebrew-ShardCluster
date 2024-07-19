@@ -322,8 +322,7 @@ FT.AGGREGATE Students:idx *
    30) "92"
 ```
 
-See! There is always an alternative to work around... Finally, we can use 
-
+See! There is always an alternative to work around... Finally, to generate student scores on history. we can use: 
 ```
 FT.AGGREGATE Students:idx * 
    LOAD 1 @studentName 
@@ -351,9 +350,9 @@ FT.AGGREGATE Students:idx *
    4) "85"
 ```
 
-To generate student scores on history. So, why don't we use RediSearch in the first place? 
+So, why don't use RediSearch in the first place? 
 
-The reason is simple, RediSearch is an extension module to Redis, not all Redis installation has loaded with, better check with: 
+The reason is simple: RediSearch is an extension module to Redis, with which not all Redis installation is equipped. One can check with: 
 ```
 INFO modules
 # Modules
@@ -374,7 +373,11 @@ MODULE list
 ```
 
 
-#### VI. Bibliography 
+#### IV. The metrics
+
+
+
+#### V. Bibliography 
 1. [Moving from Relational to Key-Value Databases](https://www.memurai.com/blog/moving-from-relational-to-key-value-databases)
 2. [Getting Started with Redis in C# using StackExchange.Redis](https://medium.com/@sadigrzazada20/getting-started-with-redis-in-c-using-stackexchange-redis-353a9d65a136)
 3. [Five Best Ways To Use Redis With ASP.NET MVC](https://www.c-sharpcorner.com/article/five-best-ways-to-use-redis-with-asp-net-mvc/)
