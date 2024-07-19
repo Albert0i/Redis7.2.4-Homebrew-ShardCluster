@@ -346,7 +346,7 @@ FT.AGGREGATE Students:idx *
    4) "85"
 ```
 
-So, why *on earch* not to use RediSearch in the first place? 
+So, why *on earth* not to use RediSearch in the first place? 
 
 Well, the reason is simple. RediSearch is an extension module to Redis, with which not all installation is necessarily equipped. In addition, RediSearch only works for Hash and JSON data structure by now. One can check with commands: 
 ```
