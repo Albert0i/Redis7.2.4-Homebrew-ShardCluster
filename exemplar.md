@@ -129,6 +129,7 @@ for i = 1, #scores, 2 do
     table.insert(retTable, { name, score })
 end
 return retTable "
+"a50238803b4bcdada6c1ce307fcd9e79b3afb35c"
 ```
 
 ```
@@ -288,18 +289,89 @@ FT.AGGREGATE Students:idx *
    REDUCE avg 1 @science AS avg_science 
    REDUCE min 1 @science AS min_science 
    REDUCE max 1 @science AS max_science 
-
 1) "1"
 2) 1) "avg_english"
    2) "87.2"
    3) "min_english"
    4) "82"
    5) "max_english"
-   6) "90"   
-. . .    
+   6) "90"
+   7) "avg_history"
+   8) "88.2"
+   9) "min_history"
+   10) "85"
+   11) "max_history"
+   12) "92"
+   13) "avg_math"
+   14) "86.6"
+   15) "min_math"
+   16) "78"
+   17) "max_math"
+   18) "95"
+   19) "avg_physics"
+   20) "88.8"
+   21) "min_physics"
+   22) "84"
+   23) "max_physis"
+   24) "92"
+   25) "avg_science"
+   26) "86.8"
+   27) "min_science"
+   28) "79"
+   29) "max_science"
+   30) "92"
 ```
 
-See! There is always an alternative to work around... 
+See! There is always an alternative to work around... Finally, we can use 
+
+```
+FT.AGGREGATE Students:idx * 
+   LOAD 1 @studentName 
+   SORTBY 2 @history DESC
+1) "5"
+2) 1) "studentName"
+   2) "John"
+   3) "history"
+   4) "92"
+3) 1) "studentName"
+   2) "Alice"
+   3) "history"
+   4) "90"
+4) 1) "studentName"
+   2) "Bob"
+   3) "history"
+   4) "88"
+5) 1) "studentName"
+   2) "Charlie"
+   3) "history"
+   4) "86"
+6) 1) "studentName"
+   2) "Jane"
+   3) "history"
+   4) "85"
+```
+
+To generate student scores on history. So, why don't we use RediSearch in the first place? 
+
+The reason is simple, RediSearch is an extension module to Redis, not all Redis installation has loaded with, better check with: 
+```
+INFO modules
+# Modules
+module:name=ReJSON,ver=20608,api=1,filters=0,usedby=[],using=[],options=[handle-io-errors]
+```
+
+or
+```
+MODULE list
+1) 1) "name"
+   2) "ReJSON"
+   3) "ver"
+   4) "20608"
+   5) "path"
+   6) "rejson.dll"
+   7) "args"
+   8) (empty list or set)
+```
 
 
 #### VI. Bibliography 
@@ -338,5 +410,7 @@ public partial class _Default : System.Web.UI.Page
     }
 }
 ```
+
+PS: I don't think it's a good idea to use Redis with C#. 
 
 ### EOF (2024/07/19)
