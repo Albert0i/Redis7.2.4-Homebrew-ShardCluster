@@ -20,7 +20,7 @@ RDBMS is another exemplar of tabular data with unparalleled power on table joini
 
 
 #### II. Students' Score 
-Let's kick start with a mini Students' Score project. We are going to setup tables to record students and scores on each subject.  
+Let's kick start with a *miniature* Students' Score project. To setup tables storing student record and scores on each subject. 
 ```
 CREATE TABLE Students (
   StudentID INT PRIMARY KEY AUTO_INCREMENT,
@@ -41,24 +41,21 @@ CREATE TABLE Scores (
 );
 ```
 
-Besides primary key, a secondary index is created on Students table: 
+Besides primary key, it is expected that access to Students table by StudentName. A secondary index is added even though it is not mandatory to do so: 
 ```
 INDEX idx_StudentName (StudentName ASC)
 ```
 
-Semantically speaking, it indicates that we are going to acccess Students table by StudentName, even though it is not mandatory to do so. And Scores table: 
+And so does the Scores table: 
 ```
   INDEX idx_StudentID (StudentID),
   INDEX idx_Subject_Score (Subject, Score),
 ```
 
-It indicates that we are going to access Scores table using StudentID, and combination of Subject and Score, even though it is not mandatory to do so. 
-
+To enforece a restriction on Scores table: 
 ```  
   FOREIGN KEY (StudentID) REFERENCES Students(StudentID)
 ```
-
-To enforece a restriction on Score must based on Student. 
 
 However, in Schemaless Redis, we store domain objects in hash. 
 ```
