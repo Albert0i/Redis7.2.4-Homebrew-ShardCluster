@@ -382,7 +382,7 @@ Not the least an accurate comparison.
 Where 
 1 second = 1,000 milliseconds (ms) = 1,000,000 microseconds (µs)
 
-One thing for sure, moving from RDBMS to Redis is a [paradigm shift](https://en.wikipedia.org/wiki/Paradigm_shift) which requires insightful cognition of data propensity. 
+One thing for sure, moving from RDBMS to Redis is a [paradigm shift](https://en.wikipedia.org/wiki/Paradigm_shift) which requires insightful cognition of data propensity, a fundamental change in ways of storage and retrieval on data of a system, which is both agonizing and tormenting. The only goal is to achieve high performance. If speed doesn't matter, stay where your are, Redis is not ypur cup of tea... 
 
 
 #### V. Bibliography 
