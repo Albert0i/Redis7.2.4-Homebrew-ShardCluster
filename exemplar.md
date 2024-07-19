@@ -10,9 +10,9 @@ Hearly can i recollect the days without [RDBMS](https://en.m.wikipedia.org/w/ind
 
 
 #### I. Address book 
-Address book is a typical exemplar of tabular data. As social circle grows in size, repeatedly looking up our address book is quite time-consuming. Usually, address book are categoried by A~Z, to look up "Roger Ackroyd", just starts on category "R" and onward. This greatly simplify and speed up the search process. 
+Address book is a typical exemplar of tabular data. As our social circle grows in size, repeatedly looking up entries is tedious and time-consuming. Usually, address book are categoried by A~Z, to look up "Roger Ackroyd", simply jump to "R" and start to check onward. In this way, the search process is greatly facilitated and speeded up. 
 
-As we delve into finer grain of address book, we found that "All entries are equal, but some entries are more equal than others", ie. changes on some entries are more often than the others. In the same way, some entries are more repeatedly accessed than the others. 
+As we delve into finer grain of our address book, it is not difficult to find out that *"All entries are equal, but some entries are more equal than others"*, ie. changes on some entries are more often than the others. In the same way, some entries are more repeatedly accessed than the others. 
 
 What if our address book contains millions of entries, we need other means other than simple categorization. We need to differentiate between ephemeral and durable data, to differentiate between frequently access and infrequently access data. 
 
