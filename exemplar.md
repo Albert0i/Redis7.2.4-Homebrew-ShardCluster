@@ -421,6 +421,6 @@ public partial class _Default : System.Web.UI.Page
 }
 ```
 
-*PS: I don't think it's a good idea to use Redis with C#. *
+*PS: I don't think it's a good idea to use Redis with C#.*
 
 ### EOF (2024/07/19)
