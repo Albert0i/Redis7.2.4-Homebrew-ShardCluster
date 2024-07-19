@@ -382,6 +382,8 @@ Not the least an accurate comparison.
 Where 
 1 second = 1,000 milliseconds (ms) = 1,000,000 microseconds (µs)
 
+One thing for sure, moving from RDBMS to Redis is a [paradigm shift](https://en.wikipedia.org/wiki/Paradigm_shift) which requires insightful cognition of data propensity. 
+
 
 #### V. Bibliography 
 1. [Moving from Relational to Key-Value Databases](https://www.memurai.com/blog/moving-from-relational-to-key-value-databases)
