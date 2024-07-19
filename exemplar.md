@@ -322,7 +322,7 @@ FT.AGGREGATE Students:idx *
    30) "92"
 ```
 
-See! There is always an alternative to work around... Finally, to generate student scores on history. we can use: 
+See! There is always an alternative to get around... Finally, to generate list of student's score on history. we can use: 
 ```
 FT.AGGREGATE Students:idx * 
    LOAD 1 @studentName 
@@ -350,16 +350,15 @@ FT.AGGREGATE Students:idx *
    4) "85"
 ```
 
-So, why don't use RediSearch in the first place? 
+So, why *on earch* not to use RediSearch in the first place? 
 
-The reason is simple: RediSearch is an extension module to Redis, with which not all Redis installation is equipped. One can check with: 
+Well, the reason is simple. RediSearch is an extension module to Redis, with which not all installation is necessarily equipped. In addition, RediSearch only works for Hash and JSON data structure only by now. One can check with commands: 
 ```
 INFO modules
 # Modules
 module:name=ReJSON,ver=20608,api=1,filters=0,usedby=[],using=[],options=[handle-io-errors]
 ```
 
-or
 ```
 MODULE list
 1) 1) "name"
@@ -422,6 +421,6 @@ public partial class _Default : System.Web.UI.Page
 }
 ```
 
-PS: I don't think it's a good idea to use Redis with C#. 
+*PS: I don't think it's a good idea to use Redis with C#. *
 
 ### EOF (2024/07/19)
