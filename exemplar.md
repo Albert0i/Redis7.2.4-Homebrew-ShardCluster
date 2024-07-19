@@ -379,7 +379,7 @@ Not the least an accurate comparison.
 | SQL JOIN | 0.6 ms |
 | SQL GROUP BY | 1.7 ms |
 
-Where: 
+Where 
 1 second = 1,000 milliseconds (ms) = 1,000,000 microseconds (µs)
 
 
