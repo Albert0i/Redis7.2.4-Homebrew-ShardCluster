@@ -14,9 +14,9 @@ Address book is a typical exemplar of tabular data. As our social circle grows i
 
 As we delve into finer grain of our address book, it is not difficult to find out that *"All entries are equal, but some entries are more equal than others"*, ie. changes on some entries are more often than the others. similarly, some entries are more repeatedly consulted than the others. 
 
-What if our address book contains millions of entries, we need other means other than simple categorization. We need to differentiate between ephemeral and durable data, to differentiate between frequently access and infrequently access data. 
+What if our address book contains millions of entries, we need innovations other than simple categorization, ie. to distinguish between ephemeral and durable data; between hot (frequently access) and cold (infrequently access) data. 
 
-RDBMS is another exemplar of tabular data with unparalleled power on table joining and aggregation, and yet has naught to make out propensity of data. The access method is none other than `index scan` and `full table scan`. 
+RDBMS is another exemplar of tabular data with unparalleled power on table joining and aggregation, and yet has naught to make out *propensity* of data, everything persists on disk as first priority, access methods are `index scan` and `full table scan` all along. 
 
 
 #### II. Students' Score 
